@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.row {
+  margin: 0;
+}
+
+.fs5 {
+  font-size: large;
+}
+.fs1{
+  font-size: 1rem;
+}
+
+.text-center{
+  text-align: center;
+
+}
+
+
+.custom-ant-image-mask{
+  border-radius: 50% !important;
+}
+
+
+
+.menu-item-custom {
+  border-radius: 0 !important;
+  padding: 30px 24px !important;
+  display: flex !important;
+  align-items: center !important;
+
+
+  & > span svg {
+    font-size: 18px;
+    line-height: 40px;
+  }
+}
