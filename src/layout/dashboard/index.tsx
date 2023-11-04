@@ -1,55 +1,78 @@
-import {Breadcrumb, Layout, theme} from "antd";
-import Sidebar from "../../component/Sidebar.tsx";
-import {Header} from "antd/es/layout/layout";
+import {Breadcrumb, Drawer, Layout, theme} from "antd";
+import AntMenu from "../../component/AntdMenu.tsx";
 import {Content} from "antd/es/layout/layout.js";
 import {Outlet, useLocation} from "react-router-dom";
-import HeaderLayout from "../../component/HeaderLayout.tsx";
-import {useState} from "react";
+import Header from "../../component/Header.tsx";
+import {useEffect, useState} from "react";
+import Sider from "antd/es/layout/Sider";
+import {useMediaQuery} from "usehooks-ts";
 
 
 const DashboardLayout = () => {
-    const {
-        token: {colorBgContainer},
-    } = theme.useToken();
+
+    const {pathname} = useLocation();
+
+    const isMobileScreen = useMediaQuery('(max-width: 768px)');
 
     const [collapsed, setCollapsed] = useState(false);
-
-    const { pathname } = useLocation();
-    const getDefaultSelectedKeys = (pathname: string) => {
-        const pathParts = pathname.split('/');
-        const firstPathSegment = pathParts[1];
-
-        switch (firstPathSegment) {
-            case 'users':
-                return 'Users';
-            case 'rooms':
-                return 'Rooms';
-            default:
-                return '';
-        }
-    }
     return (
-        <Layout style={{minHeight: '100vh'}}>
-            <Sidebar
-                collapsed={collapsed}
-                setCollapsed={setCollapsed}
-            />
-            <Layout>
-                <HeaderLayout
-                    colorBgContainer={colorBgContainer}
-                    setCollapsed={setCollapsed}
+        <Layout className={`layout-dashboard`}>
+
+            <Drawer
+                style={{
+                    overflow: 'auto',
+                }}
+
+                title={false}
+
+                placement="left"
+                closable={false}
+                onClose={() => setCollapsed(false)}
+                width={250}
+                open={collapsed}
+                className={`drawer-sidebar`}
+            >
+                <Layout>
+                    <Sider
+                        // mode like theme
+                        theme={'dark'}
+                        trigger={null}
+                        width={250}
+                    >
+                        <AntMenu/>
+                    </Sider>
+
+                </Layout>
+            </Drawer>
+            <Sider
+                style={{
+                    overflow: 'auto',
+                    height: '100vh',
+                    position: 'fixed',
+                }}
+                breakpoint="lg"
+                collapsedWidth={0}
+                trigger={null}
+                width={250}
+                theme={'dark'}
+            >
+                <AntMenu/>
+            </Sider>
+            <Layout
+                className={`layout-dashboard`}
+                style={{
+                    marginLeft: isMobileScreen ? 0 : 250,
+                }}
+            >
+                <Header
                     collapsed={collapsed}
+                    setCollapsed={setCollapsed}
+                    isMobile={isMobileScreen}
+                    name={pathname}
                 />
                 <Content style={{margin: '0 16px'}}>
-                    <Breadcrumb style={{margin: '16px 0'}}>
-                        <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
-                        <Breadcrumb.Item>{
-                            getDefaultSelectedKeys(pathname)
-                        }</Breadcrumb.Item>
-                    </Breadcrumb>
                     <Outlet/>
                 </Content>
-                {/*<Footer style={{textAlign: 'center'}}>Ant Design ©2023 Created by Ant UED</Footer>*/}
             </Layout>
         </Layout>
     )

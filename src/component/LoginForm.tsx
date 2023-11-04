@@ -1,15 +1,26 @@
 import {Button, Form, Input} from "antd";
 import {LockOutlined, UserOutlined} from "@ant-design/icons";
 import {useDispatch} from "react-redux";
+import {authService} from "../api/authService.ts";
+import {ILoginPayload} from "../type.ts";
+import {useCookies} from "react-cookie";
 
  const LoginForm = () => {
 
+     const [cookies, setCookie, removeCookie] = useCookies(['isLogin' , 'accessToken']);
 
     const dispatch = useDispatch()
 
-    const onFinish = async (values: any) => {
-        console.log('Received values of form: ', values);
-        // await dispatch(loginAsyncThunk(values))
+    const onFinish = async (payload: ILoginPayload) => {
+        console.log('Received values of form: ', payload);
+        authService.login(payload)
+            .then((res) => {
+                console.log(res)
+                setCookie('accessToken', res.data.accessToken, {path: '/'})
+                setCookie('isLogin', true, {path: '/'})
+            }).catch((err) => {
+            console.log(err)
+        })
     };
 
 

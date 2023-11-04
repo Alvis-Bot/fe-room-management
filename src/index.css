@@ -1,48 +1,140 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 #root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 .row {
-  margin: 0;
+    margin: 0;
 }
 
 .fs5 {
-  font-size: large;
-}
-.fs1{
-  font-size: 1rem;
+    font-size: large;
 }
 
-.text-center{
-  text-align: center;
-
+.fs1 {
+    font-size: 1rem;
 }
 
+.text-center {
+    text-align: center;
 
-.custom-ant-image-mask{
-  border-radius: 50% !important;
 }
 
 
+.custom-ant-image-mask {
+    border-radius: 50% !important;
+}
+
+
+
+
+
+.layout-dashboard .ant-page-header-heading {
+    margin-top: 0;
+    line-height: initial;
+}
+
+.layout-dashboard .ant-page-header-heading .ant-page-header-heading-title {
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 4px;
+}
+
+.layout-dashboard .header-control{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.shape-avatar {
+    margin-right: 20px;
+}
+
+.shape-avatar img {
+    border-radius: 4px;
+}
+
+
+.shape-avatar {
+    margin-right: 20px;
+}
+
+.shape-avatar img {
+    border-radius: 4px;
+}
+
+.avatar-info h5 {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 14px;
+    margin-bottom: 3px;
+}
+
+.avatar-info p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #8c8c8c;
+    margin: 0;
+}
+
+
+.profile-nav-bg {
+    margin-top: -87.8px;
+    box-shadow: 0 20px 27px rgb(0 0 0 / 5%);
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+
+
+}
 
 .menu-item-custom {
-  border-radius: 0 !important;
-  padding: 30px 24px !important;
-  display: flex !important;
-  align-items: center !important;
-
-
-  & > span svg {
-    font-size: 18px;
-    line-height: 40px;
-  }
+    padding: 28px 0;
+    font-size: 16px;
 }
+
+
+.custom-dropdown-item {
+    border-radius: 0 !important;
+    padding: 15px 24px !important;
+    font-size: 16px;
+
+    & > span svg {
+        font-size: 18px;
+    }
+}
+
+.menu-item-custom-papa  .ant-menu-submenu-title {
+    padding: 28px 0;
+    font-size: 16px;
+}
+
+/*
+
+ --------------------------------------------
+*/
+
