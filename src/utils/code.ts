@@ -1,6 +1,6 @@
 
 
 export const donCheckGetImageUrl = (patent?: string) => {
-    return `http://localhost:3005/${patent}`;
+    return `${import.meta.env.VITE_BASE_URL}/${patent}`;
 };
 

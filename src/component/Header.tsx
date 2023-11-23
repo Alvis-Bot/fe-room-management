@@ -5,8 +5,6 @@ import {
 } from "@ant-design/icons";
 import  {FC, useEffect} from "react";
 import {Header as AntHeader} from "antd/es/layout/layout";
-import {useAppDispatch} from "../redux/hooks.ts";
-import {useCookies} from "react-cookie";
 import {useNavigate} from "react-router-dom";
 
 type HeaderProps = {

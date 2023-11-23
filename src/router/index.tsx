@@ -4,7 +4,6 @@ import {DEFAULT_PATH} from "../../config.ts";
 import {Navigate, useRoutes} from "react-router-dom";
 import AuthLayout from "../layout/AuthLayout.tsx";
 import DashboardLayout from "../layout/dashboard";
-import {useCookies} from "react-cookie";
 
 
 const Loadable = (Component: ComponentType) => {
